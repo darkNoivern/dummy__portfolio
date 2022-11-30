@@ -200,4 +200,4 @@ function changeColor(){
         xi=0;  // Reset i to 0 if it exceeds colors length
     }
 }
-setInterval(changeColor, 500);
+setInterval(changeColor, 250);
