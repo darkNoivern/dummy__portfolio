@@ -34,12 +34,21 @@ const skillsContent = document.getElementsByClassName('skills__content'),
 
 function toggleSkills() {
     let itemClass = this.parentNode.className
-    for (i = 0; i < skillsContent.length; i++) {
-        skillsContent[i].className = 'skills__content skills__close'
+    let clist = this.parentNode.classList
+    if(clist.contains('skills__close')){
+        this.parentNode.classList.remove('skills__close');
+        this.parentNode.classList.add('skills__open');
     }
-    if (itemClass === 'skills__content skills__close') {
-        this.parentNode.className = 'skills__content skills__open'
+    else{
+        this.parentNode.classList.remove('skills__open');
+        this.parentNode.classList.add('skills__close');
     }
+    // for (i = 0; i < skillsContent.length; i++) {
+    //     skillsContent[i].className = 'skills__content skills__close'
+    // }
+    // if (itemClass === 'skills__content skills__close') {
+    //     this.parentNode.className = 'skills__content skills__open'
+    // }
 }
 
 skillsHeader.forEach((el) => {
@@ -177,7 +186,7 @@ const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'uil-su
 // We validate if the user previously chose a topic
 if (selectedTheme) {
   // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
-  document.body.classList[selectedTheme === 'dark-theme' ? 'add' : 'remove'](darkTheme)
+  document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
   themeButton.classList[selectedIcon === 'uil-sun' ? 'add' : 'remove'](iconTheme)
 }
 
@@ -191,8 +200,8 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
 
-let xi = 0;
 // Triggers every second
+let xi = 0;
 function changeColor(){
     document.documentElement.style.setProperty('--hue-color', xi);
     xi++;
