@@ -104,7 +104,7 @@ modalCloses.forEach((modalClose)=>{
 
 /*==================== PORTFOLIO SWIPER  ====================*/
 let swiper = new Swiper('.portfolio__container',{
-    cssMode: true,
+    // cssMode: true,
     loop: true,
     navigation: {
         nextEl: '.swiper-button-next',
@@ -118,7 +118,7 @@ let swiper = new Swiper('.portfolio__container',{
 
 /*==================== TESTIMONIAL ====================*/
 let swiperTestimonial = new Swiper('.testimonial__container',{
-    cssMode: true,
+    // cssMode: true,
     loop: true,
     grabCursor: true,
     spaceBetween: 48,
@@ -143,12 +143,15 @@ function scrollActive(){
     sections.forEach(current =>{
         const sectionHeight = current.offsetHeight
         const sectionTop = current.offsetTop - 50;
-        sectionId = current.getAttribute('id')
+        const sectionId = current.getAttribute('id')
+        // console.log(sectionId)
 
-        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
+        if(scrollY > sectionTop && scrollY <= (sectionTop + sectionHeight)){
+            // console.log(sectionId)
+            // console.log(document.querySelector('.nav__menu a[href*=' + sectionId + ']'))
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active__link')
         }else{
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active__link')
         }
     })
 }
@@ -166,7 +169,7 @@ window.addEventListener('scroll', scrollHeader)
 function scrollUp(){
     const scrollUp = document.getElementById('scroll-up');
     // When the scroll is higher than 560 viewport height, add the show-scroll class to the a tag with the scroll-top class
-    if(this.scrollY >= 80) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+    if(this.scrollY >= 560) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
 }
 window.addEventListener('scroll', scrollUp)
 

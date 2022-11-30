@@ -728,7 +728,7 @@ img {
   cursor: pointer;
 }
 
-.service__modal-icon {
+.services__modal-icon {
   color: var(--first-color);
   margin-right: var(--mb-0-25);
 }
@@ -1233,7 +1233,7 @@ img {
   }
 
   .services__container {
-    grid-template-columns: repeat(3, 218px);
+    /* grid-template-columns: repeat(3, 218px); */
     justify-content: center;
   }
 
